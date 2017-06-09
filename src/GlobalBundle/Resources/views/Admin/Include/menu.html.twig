@@ -1,0 +1,48 @@
+{% set menuUtilisateur = ['admin_user_manager', 'admin_user_ajouter', 'admin_user_modifier', 'admin_user_password'] %}
+{% set menuActualite = ['admin_actualite_manager', 'admin_actualite_ajouter', 'admin_actualite_modifier','admin_actualitecategorie_manager', 'admin_actualitecategorie_ajouter', 'admin_actualitecategorie_modifier'] %}
+{% set menuCompetence = ['admin_competence_manager', 'admin_competence_ajouter', 'admin_competence_modifier'] %}
+{% set menuProjet = ['admin_projet_manager', 'admin_projet_ajouter', 'admin_projet_modifier', 'admin_projetcategorie_manager', 'admin_projetcategorie_ajouter', 'admin_projetcategorie_modifier'] %}
+{% set menuDashboard = ['admin_page_index'] %}
+{% set menuContact = ['admin_contact_manager'] %}
+
+<nav id="menu">
+
+	<div id="menuEntreprise">
+		<p>Luc Pinelli</p>
+	</div>
+
+	<div id="menuLogo">
+		<img src="{{ asset('img/admin/logo.png') }}" alt="">
+	</div>
+
+	<a href="{{ path('admin_page_index')}}" class="menuNav {{ getCurrentMenu(menuDashboard) }}"><i class="fa fa-home"></i> Dashboard</a>
+
+    <a href="#" data-nav="utilisateur-menu" class="menuNav {{ getCurrentMenu(menuUtilisateur) }}"> <i class="fa fa-users"></i> Utilisateurs <i class="fa fa-angle-right"></i></a>
+    <ul id="utilisateur-menu" class="{{ getCurrentMenu(menuUtilisateur) }}">
+        <li class="{{ getCurrentMenu(['admin_user_ajouter']) }}"><a href="{{ path('admin_user_ajouter')}}"><i class="fa fa-circle-o"></i> Ajouter un utilisateur</a></li>
+        <li class="{{ getCurrentMenu(['admin_user_manager']) }}"><a href="{{ path('admin_user_manager')}}"><i class="fa fa-circle-o"></i> Gestion des utilisateurs</a></li>
+    </ul>
+
+	<a href="#" data-nav="actualite-menu" class="menuNav {{ getCurrentMenu(menuActualite) }}"> <i class="fa fa-newspaper-o"></i> Actualités <i class="fa fa-angle-right"></i></a>
+	<ul id="actualite-menu" class="{{ getCurrentMenu(menuActualite) }}">
+		<li class="{{ getCurrentMenu(['admin_actualite_ajouter']) }}"><a href="{{ path('admin_actualite_ajouter')}}"><i class="fa fa-circle-o"></i> Ajouter une actualité</a></li>
+		<li class="{{ getCurrentMenu(['admin_actualite_manager']) }}"><a href="{{ path('admin_actualite_manager')}}"><i class="fa fa-circle-o"></i> Gestion des actualités</a></li>
+		<li class="{{ getCurrentMenu(['admin_actualitecategorie_manager']) }}"><a href="{{ path('admin_actualitecategorie_manager')}}"><i class="fa fa-circle-o"></i> Gestion des catégories</a></li>
+	</ul>
+
+	<a href="#" data-nav="competence-menu" class="menuNav {{ getCurrentMenu(menuCompetence) }}"> <i class="fa fa-puzzle-piece"></i> Compétences <i class="fa fa-angle-right"></i></a>
+	<ul id="competence-menu" class="{{ getCurrentMenu(menuCompetence) }}">
+		<li class="{{ getCurrentMenu(['admin_competence_ajouter']) }}"><a href="{{ path('admin_competence_ajouter')}}"><i class="fa fa-circle-o"></i> Ajouter une compétence</a></li>
+		<li class="{{ getCurrentMenu(['admin_competence_manager']) }}"><a href="{{ path('admin_competence_manager')}}"><i class="fa fa-circle-o"></i> Gestion des compétences</a></li>
+	</ul>
+
+	<a href="#" data-nav="projet-menu" class="menuNav {{ getCurrentMenu(menuProjet) }}"> <i class="fa fa-link"></i> Projets <i class="fa fa-angle-right"></i></a>
+	<ul id="projet-menu" class="{{ getCurrentMenu(menuProjet) }}">
+		<li class="{{ getCurrentMenu(['admin_projet_ajouter']) }}"><a href="{{ path('admin_projet_ajouter')}}"><i class="fa fa-circle-o"></i> Ajouter un projet</a></li>
+		<li class="{{ getCurrentMenu(['admin_projet_manager']) }}"><a href="{{ path('admin_projet_manager')}}"><i class="fa fa-circle-o"></i> Gestion des projets</a></li>
+        <li class="{{ getCurrentMenu(['admin_projetcategorie_manager']) }}"><a href="{{ path('admin_projetcategorie_manager')}}"><i class="fa fa-circle-o"></i> Gestion des catégories</a></li>
+    </ul>
+
+    <a href="{{ path('admin_contact_manager')}}" class="menuNav {{ getCurrentMenu(menuContact) }}"><i class="fa fa-envelope"></i> Contact</a>
+
+</nav>

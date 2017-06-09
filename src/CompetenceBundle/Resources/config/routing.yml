@@ -1,0 +1,34 @@
+admin_competence_manager:
+    path:     /admin/competence/manager
+    defaults: { _controller: CompetenceBundle:Competence:managerAdmin }
+
+admin_competence_ajouter:
+    path:     /admin/competence/ajouter
+    defaults: { _controller: CompetenceBundle:Competence:ajouterAdmin }
+
+admin_competence_publier:
+    path:     /admin/competence/publier/{id}
+    defaults: { _controller: CompetenceBundle:Competence:publierAdmin }
+    requirements:
+        id: \d+
+
+admin_competence_poid:
+    path:     /admin/competence/poid/{id}/{poid}
+    defaults:
+        _controller: CompetenceBundle:Competence:poidAdmin
+        poid : 1
+    requirements:
+        id: \d+
+        poid: \d+
+
+admin_competence_modifier:
+    path:     /admin/competence/modifier/{id}
+    defaults: { _controller: CompetenceBundle:Competence:modifierAdmin }
+    requirements:
+        id: \d+
+
+admin_competence_supprimer:
+    path:     /admin/competence/supprimer/{id}
+    defaults: { _controller: CompetenceBundle:Competence:supprimerAdmin }
+    requirements:
+        id: \d+

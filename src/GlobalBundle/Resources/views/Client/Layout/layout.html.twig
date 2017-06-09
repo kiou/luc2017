@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+	<title>{% block metaTitle %}{% endblock %}</title>
+	<meta name="description" content="{% block metaDescription %}{% endblock %}">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="icon" type="image/png" href="{{ asset('img/layout/favicon.png') }}">
+	<link href="{{ asset('css/client/app.css')}}" rel="stylesheet" type="text/css">
+
+	{% block css %}{% endblock %}
+</head>
+
+<body class="{% block bodyClass %}{% endblock %}">
+
+    <!-- Le loader -->
+    {{ include("GlobalBundle:Client/Include:loader.html.twig") }}
+
+	<main class="main">
+
+        <!-- Le menu -->
+        {{ include("GlobalBundle:Client/Include:menu.html.twig") }}
+
+        <!-- Contenu principal du site -->
+        {% block content %}
+        {% endblock %}
+
+        <!-- Le footer -->
+        {{ include("GlobalBundle:Client/Include:footer.html.twig") }}
+
+        <!-- Le pied de page -->
+        {{ include("GlobalBundle:Client/Include:bottom.html.twig") }}
+
+	</main>
+	
+	<!-- Librairies javascript -->
+	{% if app.environment == 'prod' %}
+		<script type="text/javascript" src="{{ asset('js/client/app_min.js')}}"></script>
+	{% else %}
+		<script type="text/javascript" src="{{ asset('js/jquery/jquery.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/particle/particles.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/pathformer.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/vivus.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/scrollmagic/ScrollMagic.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/scrollmagic/animation.gsap.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/scrollmagic/TweenMax.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/isotope.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/height.js')}}"></script>
+		<script type="text/javascript" src="{{ asset('js/client/app.js')}}"></script>
+	{% endif %}
+    {% block script %}{% endblock %}
+
+</body>
+</html>

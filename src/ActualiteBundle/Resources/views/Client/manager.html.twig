@@ -1,0 +1,49 @@
+{% extends "GlobalBundle:Client/Layout:layout.html.twig" %}
+
+{% block metaTitle %}Pinelli Luc - Actualités{% endblock %}
+{% block metaDescription %}{% endblock %}
+
+{% block bodyClass %}noHome{% endblock %}
+
+{% block content %}
+
+    <section class="section contenu">
+
+        <div id="particles-light-js" class="contenuParticle"></div>
+
+        <div class="inner">
+
+            <div class="contenuHeader">
+                <h1>Actualités<br>& inspirations</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aut commodi consequuntur facilis harum ratione, reprehenderit vitae. Incidunt inventore nisi nobis recusandae! A cumque dignissimos magni maxime nisi? Ab, quam!</p>
+            </div>
+
+            <div class="actualitesListe">
+
+                {% for actualite in actualites %}
+                    <div class="actualiteListe navAnimate" data-url="{{ path('client_actualite_view',{'slug': actualite.slug,'id': actualite.id}) }}">
+                        <div class="actualiteListeContenu">
+                            <p class="actualiteListeDate">{# {{ actualite.created|localizeddate('none', 'none', null, null, 'd MMMM Y') }} #} 26 janvier 2017</p>
+                            <a class="actualiteListeTitre navAnimate" href="{{ path('client_actualite_view',{'slug': actualite.slug,'id': actualite.id}) }}">{{ actualite.titre }}</a>
+
+                            <p class="actualiteListeResume">{{ actualite.resume }}</p>
+                        </div>
+
+                        <div class="acutaliteListeImage">
+                            <img src="{{ asset('img/actualite/miniature/' ~ actualite.image) }}">
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <img src="{{ asset('img/layout/triangleRouge.svg') }}" class="contenuTriangleRouge">
+
+        <img src="{{ asset('img/layout/triangleBleu.svg') }}" class="contenuTriangleBleu">
+    </section>
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "GlobalBundle:Admin/Layout:layout.html.twig" %}
+
+{% block contentTitre %} Modifier une actualité {% endblock %}
+
+{% block breadcrumb %}
+	<div id="breadcrumb">
+		{{ include("GlobalBundle:Admin/Include:breadcrumb.html.twig") }}
+	</div>
+{% endblock %}
+
+{% block content %}
+
+	{{ form_start(form, {'attr': {novalidate: 'novalidate'}}) }}
+
+		{{ form_errors(form) }}
+		
+		{{ form_label(form.titre, "Titre *") }}
+		{{ form_errors(form.titre) }}
+		{{ form_widget(form.titre, {'attr': {'class': 'form-elem big'}}) }}
+
+		{% if actualite.image is not empty %}
+			<div class="form-image big">
+				<img src="{{ asset('img/actualite/tmp/' ~ actualite.image) }}">
+			</div>
+		{% endif %}
+
+		{{ form_label(form.fileimage, "Image *") }}
+		{{ form_errors(form.fileimage) }}
+		{{ form_widget(form.fileimage, {'attr': {'class': 'form-elem big'}}) }}
+		<div class="form-legende">
+			Taille minimum: 640px de large par 480px de haut<br>Poid maximum : 3Mo<br>Format : jpg, jpeg, png
+		</div>
+
+		{{ form_label(form.categorie, "Catégorie *") }}
+		{{ form_errors(form.categorie) }}
+		{{ form_widget(form.categorie, {'attr': {'class': 'form-elem big'}}) }}
+
+        <div class="form-radio">
+            {{ form_label(form.avant, "Mise en avant *") }}
+            {{ form_errors(form.avant) }}
+            {{ form_widget(form.avant) }}
+        </div>
+
+		{{ form_label(form.resume, "Résumé *") }}
+		{{ form_errors(form.resume) }}
+		{{ form_widget(form.resume, {'attr': {'class': 'form-elem big'}}) }}
+
+		{{ form_label(form.contenu, "Contenu *") }}
+		{{ form_errors(form.contenu) }}
+		{{ form_widget(form.contenu, {'attr': {'class': 'tinymce form-elem big wysiwyg'}}) }}
+
+		<br>
+
+		<div class="form-bloc">
+			<h3>Référencement</h3>
+
+			{{ form_label(form.metatitle, "Méta title *") }}
+			{{ form_errors(form.metatitle) }}
+			{{ form_widget(form.metatitle, {'attr': {'class': 'form-elem big'}}) }}
+
+			{{ form_label(form.metadescription, "Méta description *") }}
+			{{ form_errors(form.metadescription) }}
+			{{ form_widget(form.metadescription, {'attr': {'class': 'form-elem big'}}) }}
+		</div>
+
+		<br>
+
+		{{ form_rest(form) }}
+
+	{{ form_end(form) }}
+
+{% endblock %}
+
+{% block scriptAfter %}
+    <script type="text/javascript" src="{{ asset('js/tinymce/tinymce.min.js')}}"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: ".wysiwyg",
+            entity_encoding : "raw",
+            encoding: "UTF-8",
+            browser_spellcheck : true,
+            plugins: "link, paste, code, responsivefilemanager, image, media",
+            height:"450px",
+            menubar : false,
+            paste_as_text: true,
+            language : 'fr_FR',
+            style_formats: [
+                {title: 'Title h2', block: 'h2'},
+                {title: 'Title h3', block: 'h3'},
+                {title: 'Title h4', block: 'h4'}
+            ],
+            content_css : "{{ asset('js/tinymce/tinymce.css') }}",
+            relative_urls: false,
+            external_filemanager_path:"{{ asset('js/filemanager/')}}",
+            filemanager_title:"Mes images",
+            external_plugins: { "filemanager" : "{{ asset('js/filemanager/plugin.min.js') }}"},
+            toolbar: "undo redo | bold italic underline link | bullist numlist | styleselect | image media | code"
+        });
+    </script>
+{% endblock %}

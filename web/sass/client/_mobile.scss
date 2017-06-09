@@ -1,0 +1,402 @@
+@media screen and (max-width: 1600px) {
+
+    .section1{
+        .inner{
+            padding:640px 0px 50px 0px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1450px) {
+
+    .inner{
+        max-width: 1200px;
+        margin: 0px 2%;
+    }
+
+    .menu{
+        .inner{
+            margin: 0px 2% 0px 110px;
+        }
+    }
+
+    .section3Projets{
+        width: 60%;
+    }
+
+    .section4, .section5, .footer{
+        .inner{
+            margin:0px auto;
+        }
+    }
+
+    .contenu{
+        .inner{
+            padding:130px 0px 450px 0px;
+
+        }
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+    h1{
+        font-size: 55px;
+        line-height:55px;
+    }
+
+    h2{
+        font-size: 55px;
+        line-height:55px;
+    }
+
+    .section1{
+        .inner{
+            padding:500px 0px 50px 0px;
+        }
+    }
+
+    .section1Left{
+        h1{
+            &:after{
+                top: -180px;
+                height: 150px;
+            }
+        }
+        p{
+            font-size: 18px;
+            line-height:33px;
+        }
+    }
+
+    .section3Projets{
+        width: 65%;
+    }
+
+    .section3Nom{
+        top: 450px;
+    }
+
+    .section3{
+        .inner{
+            padding:150px 0px 0px 0px;
+        }
+    }
+
+    .section4ActualiteTitre{
+        padding: 40px 3% 90px 3%;
+    }
+
+    .section4{
+        padding: 70px 0px 0px 0px;
+    }
+
+    .section5Right, .section5Left{
+        width: 50%;
+    }
+
+    .section5{
+        .inner{
+            margin:0px 2%;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1100px) {
+
+    .actualiteListeTitre{
+        font-size: 25px;
+        line-height: 35px;
+    }
+
+    .actualiteListeContenu{
+        padding: 30px 25px;
+    }
+
+    .contenu{
+        .inner{
+            padding:130px 0px 380px 0px;
+
+        }
+    }
+
+}
+
+@media screen and (max-width: 960px) {
+
+    .section1Left{
+        width: 100%;
+        padding-top: 0px;
+    }
+
+    .section1Scroll{
+        display: none;
+    }
+
+    .section1Right{
+        display: none;
+        width: 100%;
+        img{
+            width: 100%;
+            @include transform(scale(0.8));
+        }
+    }
+
+    .section3Projets{
+        width: 100%;
+    }
+
+    .section3All{
+        display: none;
+    }
+
+    .section2{
+        height: 40px;
+    }
+
+    .section3{
+        .inner{
+            padding:130px 0px 0px 0px;
+        }
+    }
+
+    .section3Competences{
+        padding-top: 100px;
+    }
+
+    .section3Competence{
+        width:calc(100% / 2);
+    }
+
+    .section4Actualite{
+        width: 46%;
+        &:nth-child(2){
+            margin-top: 0px;
+        }
+        &:nth-child(3){
+            display: none;
+        }
+    }
+
+    .section4Titre{
+        h2{
+            padding-bottom: 50px;
+        }
+    }
+
+    .section5Right, .section5Left{
+        width: 100%;
+    }
+
+    .section5Left{
+        margin-bottom: 40px;
+        h2{
+            font-size: 60px;
+            line-height:70px;
+            padding-bottom: 30px;
+        }
+    }
+
+    .section5{
+        .inner{
+            padding: 40px 0px;
+        }
+    }
+
+    .section5TitreMobile{
+        display: block;
+    }
+
+    .section5TitreBureau{
+        display: none;
+    }
+
+    .section3Competence{
+        p{
+            line-height:26px;
+            font-size: 15px;
+        }
+    }
+
+    .contenu{
+        .inner{
+            padding:130px 0px 310px 0px;
+        }
+    }
+
+    .actualiteListeContenu{
+        width: 100%;
+    }
+
+    .acutaliteListeImage{
+        display: none;
+    }
+
+}
+
+
+@media screen and (max-width: 680px) {
+
+
+    .contenu{
+        .inner{
+            padding:130px 0px 240px 0px;
+        }
+    }
+
+    .acutaliteListeImage{
+        display: block;
+        width: 100%;
+    }
+
+    .projetListe{
+        width:97%;
+    }
+
+    .actualitesListe{
+        padding-top: 55px;
+    }
+
+    .projetsListeCategorie{
+        padding-top: 55px;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    h1{
+        font-size: 45px;
+        line-height:45px;
+    }
+
+    h2{
+        font-size: 45px;
+        line-height:45px;
+    }
+
+    .accueil{
+        .menu{
+            background: $bleu url(../../img/layout/lpBleu.jpg) no-repeat left center;
+        }
+    }
+
+    .section1{
+        .inner{
+            padding:400px 0px 50px 0px;
+        }
+    }
+
+    .section1LogoLeft{
+        display: none;
+    }
+
+    .section3Projet{
+        width: 100%;
+    }
+
+    .section3Nom{
+        top: 900px;
+    }
+
+    .section3Competence{
+        width:100%;
+        padding:0px;
+    }
+
+    .section3{
+        .inner{
+            padding:90px 0px 0px 0px;
+        }
+    }
+
+    .section3Competences{
+        padding-top: 60px;
+    }
+
+    .section3Competence{
+        p{
+            line-height:30px;
+            font-size: 17px;
+        }
+    }
+
+    .section4Actualite{
+        width: 96%;
+        &:nth-child(1){
+            margin-bottom: 35px;
+        }
+    }
+
+    .section4{
+        padding:40px 0px 0px 0px;
+    }
+
+    .section5Left{
+        h2{
+            font-size: 50px;
+            line-height:60px;
+        }
+    }
+
+    .footer{
+        .inner{
+            padding:50px 0px;
+        }
+        .col{
+            margin-bottom: 20px;
+            width: 100%;
+        }
+    }
+
+    .section1Left{
+        p{
+            font-size: 16px;
+            line-height:30px;
+        }
+    }
+
+    .menuContenu{
+        a{
+            font-size: 35px;
+            opacity:0.5;
+        }
+
+    }
+
+    .loaderInnerPage{
+        left: 25px;
+        bottom: 25px;
+    }
+
+    .section3ProjetHover{
+        opacity:1;
+        background-color: rgba($bleuFonce,0.7);
+        p{
+            color: $blanc;
+        }
+    }
+
+    .bottom{
+        p{
+            opacity:0.6;
+            font-size:12px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 380px) {
+
+    .section3Nom{
+        top: 800px;
+    }
+
+}
+
+
+
+

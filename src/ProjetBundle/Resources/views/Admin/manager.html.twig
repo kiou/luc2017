@@ -1,0 +1,83 @@
+{% extends "GlobalBundle:Admin/Layout:layout.html.twig" %}
+
+{% block cssBefore %}
+	<link href="{{ asset('js/sweet/sweet.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block contentTitre %}Gestion des projets{% endblock %}
+
+{% block content %}
+	<div id="recherche">
+		<form action="{{ path('admin_projet_manager') }}" method="post">
+			<input type="text" name="recherche" class="form-elem medium" value="{{ recherches.recherche | default('') }}">
+
+			<button type="submit" name="addRecherche"><i class="fa fa-search"></i></button>
+		</form>
+	</div>
+
+	<table class="table">
+		
+		<tr>
+			<th width="15%"></th>
+			<th class="left" width="55%">Projet</th>
+			<th width="15%">Catégorie</th>
+			<th colspan="3" width="15%">Actions</th>
+		</tr>
+
+		{% for projet in pagination %}
+			
+			<tr>
+
+				<td>
+					<img class="tableImage" src="{{ asset('img/projet/liste/' ~ projet.image) }}">
+				</td>
+
+				<td class="left">
+					<p class="tableDate">Ajouté le {{ projet.created|date("d/m/Y à H:i") }}</p>
+					{% if projet.changed is not null %}
+						<p class="tableDate">Modifié le {{ projet.changed|date("d/m/Y à H:i") }}</p>
+					{% endif %}
+					<p><strong>{{ projet.titre }}</strong></p>
+				</td>
+
+				<td>
+					<p>{{ projet.categorie.nom }}</p>
+				</td>
+
+				{% if projet.isActive == false %}
+					<td data-url="{{ path('admin_projet_publier',{'id': projet.id})}}" class="tablePublucation">
+                    	<a href="{{ path('admin_projet_publier',{'id': projet.id})}}" title="Publication"><i class="tableAction rouge fa fa-check"></i></a>
+                    </td>
+				{% else %}
+					<td data-url="{{ path('admin_projet_publier',{'id': projet.id})}}" class="tablePublucation">
+                    	<a href="{{ path('admin_projet_publier',{'id': projet.id})}}" title="Publication"><i class="tableAction turquoise fa fa-check"></i></a>
+                    </td>
+				{% endif %}
+
+				<td>
+                    <a href="{{ path('admin_projet_modifier',{'id': projet.id})}}" title="Modifier le projet"><i class=" tableAction fa fa-pencil"></i></a>
+                </td>
+
+				<td>
+                    <a href="{{ path('admin_projet_supprimer',{'id': projet.id})}}" class="sweetDelete" title="Supprimer le projet" data-title="Supprimer le projet" data-text="êtes vous sur ?"><i class=" tableAction fa fa-trash"></i></a>
+                </td>
+			</tr>
+
+		{% else %}
+			<tr>
+				<td colspan="6">Aucun projet</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+
+	{# display navigation #}
+	<div class="navigation">
+	    {{ knp_pagination_render(pagination) }}
+	</div>
+	
+{% endblock %}
+
+{% block scriptBefore %}
+	<script type="text/javascript" src="{{ asset('js/sweet/sweet.js')}}"></script>
+{% endblock %}

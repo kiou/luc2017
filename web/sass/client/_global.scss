@@ -1,0 +1,218 @@
+p{
+    color: $gris;
+    font-size: 15px;
+}
+
+h1{
+    font-size: 70px;
+    line-height:70px;
+    color: $blanc;
+    font-family: 'Playfair Display', serif;
+}
+
+h2{
+    font-size: 70px;
+    line-height:70px;
+    color: $bleuFonce;
+    font-family: 'Playfair Display', serif;
+}
+
+h3{
+    color: $bleuFonce;
+    font-family: 'Playfair Display', serif;
+}
+
+h4{
+    color: $bleuFonce;
+    font-family: 'Playfair Display', serif;
+}
+
+.inner{
+    max-width: 1200px;
+    margin: 0px auto;
+    z-index:10;
+    position: relative;
+}
+
+.section{
+    position: relative;
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    background-color: $bleuFonce;
+    color: $blanc;
+    text-transform: uppercase;
+    padding:15px 30px;
+    font-size:12px;
+    font-weight: 400;
+    opacity:1;
+    @include transition-property(opacity, padding);
+    @include transition-duration(0.4s);
+    @include transition-timing-function(ease);
+    &.rouge{
+        background-color: $rouge;
+    }
+    &:hover{
+        opacity:0.5;
+        padding:15px 40px;
+    }
+    .fa{
+        margin-right: 8px;
+    }
+}
+
+.form-group{
+    position: relative;
+    margin: 5px 0px 25px 5px;
+    label{
+        font-size: 14px;
+        color: lighten($gris,20%);
+        position: absolute;
+        left: 0px;
+        top: 15px;
+        @include transition-property(top, color, font-size);
+        @include transition-duration(0.3s);
+        @include transition-timing-function(ease);
+    }
+    &:after{
+        content:'';
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+        height: 2px;
+        background-color: $rouge;
+        width: 0px;
+        @include transition-property(left, width);
+        @include transition-duration(0.3s);
+        @include transition-timing-function(ease);
+    }
+    &.current{
+        label{
+            top: -8px;
+            color: $rouge;
+            font-size:12px;
+        }
+        &:after{
+            width: 100%;
+            left: 0px;
+        }
+    }
+}
+
+.form-elem{
+    width: 100%;
+    border:none;
+    padding: 16px 0px 8px 0px;
+    border-bottom:1px solid lighten($gris,30%);
+    font-size: 14px;
+    background: none;
+    display: block;
+}
+
+.form-submit{
+    display: inline-block;
+    background-color: $bleuFonce;
+    color: $blanc;
+    text-transform: uppercase;
+    padding:15px 30px;
+    font-size:12px;
+    font-weight: 400;
+    opacity:1;
+    @include transition-property(opacity);
+    @include transition-duration(0.4s);
+    @include transition-timing-function(ease);
+    border:none;
+    cursor: pointer;
+    &.rouge{
+        background-color: $rouge;
+    }
+    &:hover{
+        opacity:0.5;
+    }
+    .fa{
+        margin-right: 6px;
+    }
+}
+
+.message{
+    width: 100%;
+    margin-bottom: 25px;
+    background-color: $blanc;
+    padding:13px 13px 13px 27px;
+    position: relative;
+    p{
+        font-size: 13px;
+    }
+    .messageCouleur{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        width: 4px;
+    }
+    &#erreur{
+        .messageCouleur{
+            background-color: $rouge;
+        }
+    }
+    &#succes{
+        .messageCouleur{
+            background-color: $jaune;
+        }
+    }
+}
+
+.wysiwyg{
+    p{
+        margin-bottom: 15px;
+    }
+    ol,ul{
+        margin: 0px 0px 15px 20px;
+        li{
+            font-size: 15px;
+            color: $gris;
+        }
+    }
+    a{
+        color: $jaune;
+        text-decoration: underline;
+        @include transition-property(opacity);
+        @include transition-duration(0.4s);
+        @include transition-timing-function(ease);
+        &:hover{
+            opacity:0.6;
+        }
+    }
+    h2{
+        color: $blanc;
+        margin-bottom: 15px;
+        font-size: 40px;
+        line-height:40px;
+        word-wrap: break-word;
+    }
+    h3{
+        color: $blanc;
+        margin-bottom: 15px;
+        font-size: 30px;
+        line-height:30px;
+        word-wrap: break-word;
+    }
+    h4{
+        color: $blanc;
+        margin-bottom: 15px;
+        font-size: 20px;
+        line-height:20px;
+        word-wrap: break-word;
+    }
+    img{
+        max-width:100%;
+        height:auto;
+    }
+
+    iframe{
+        width: 100%;
+        height: 450px;
+    }
+}

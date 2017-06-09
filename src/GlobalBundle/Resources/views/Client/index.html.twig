@@ -1,0 +1,162 @@
+{% extends "GlobalBundle:Client/Layout:layout.html.twig" %}
+
+{% block metaTitle %}Pinelli Luc{% endblock %}
+{% block metaDescription %}{% endblock %}
+
+{% block bodyClass %}accueil{% endblock %}
+
+{% block content %}
+
+    <section class="section section1">
+        <div id="particles-js" class="section1Particle"></div>
+        <img src="{{ asset('img/section1/triangle.svg') }}" class="section1Triangle">
+        <img src="{{ asset('img/layout/lpRouge.jpg') }}" class="section1LogoLeft">
+
+        <div class="inner">
+            <div class="section1Contenu">
+                <div class="section1Scroll">
+                    <p>scroll</p>
+                </div>
+
+                <div class="section1Left">
+                    <h1>Développement.<br>Site internet.</h1>
+                    <p>hey, tu cherche un webmaster ?<br>Du coup bienvenue ! Hésite pas à faire le tour de mes références, y'a des actus aussi si tu veu, amuse toi bien ! (et j'adore le web, en parler, le partager également alors contacte moi)</p>
+                </div>
+
+                <div class="section1Right">
+                    <img src="{{ asset('img/section1/portable.png') }}">
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section2"></section>
+
+    <section class="section section3">
+        <img src="{{ asset('img/section3/triangle.svg') }}" class="section3Triangle">
+
+        <img src="{{ asset('img/section3/nom.svg') }}" class="section3Nom">
+
+        <div class="section3Projets">
+            {% for projet in projets %}
+                <div class="section3Projet navExt" data-url="{{ projet.lien }}">
+                    <div class="section3ProjetHover">
+                        <h3>{{ projet.titre }}</h3>
+                        {{ projet.contenu|raw }}
+
+                        <i class="section3ProjetLink fa fa-link"></i>
+                    </div>
+                    <img src="{{ asset('img/projet/avant/' ~ projet.imageavant) }}">
+                </div>
+            {% endfor %}
+
+            <div class="section3All">
+                <a href="{{ path('client_projet_manager') }}" class="navAnimate"><i class="fa fa-angle-right"></i> Liste des projets</a>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="inner">
+            <h2>Outils &.<br>Compétences.</h2>
+
+            <div class="section3Competences" id="competences">
+                {% for competence in competences %}
+                    <div class="section3Competence">
+                        <img src="{{ asset('img/competence/tmp/' ~ competence.image) }}">
+                        <h3>{{ competence.titre }}</h3>
+                        <p>{{ competence.contenu }}</p>
+                    </div>
+                {% endfor %}
+
+                <div class="clear"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section section4">
+
+        <div class="section4Triangles">
+            <img src="{{ asset('img/section4/triangle1.svg') }}" class="section4Triangle1">
+            <img src="{{ asset('img/section4/triangle2.svg') }}" class="section4Triangle2">
+        </div>
+
+        <div class="inner">
+
+            <div class="section4Titre">
+                <h2>Actualités</h2>
+            </div>
+
+            <div class="section4Actualites">
+                {% for actualite in actualites %}
+                    <div class="section4Actualite navAnimate" data-url="{{ path('client_actualite_view',{'slug': actualite.slug,'id': actualite.id}) }}">
+                        <div class="section4ActualiteImage">
+                            <img src="{{ asset('img/actualite/miniature/' ~ actualite.image) }}">
+                        </div>
+
+                        <div class="section4ActualiteContenu">
+                            <a href="{{ path('client_actualite_view',{'slug': actualite.slug,'id': actualite.id}) }}" class="section4ActualiteTitre navAnimate">{{ actualite.titre }}</a>
+
+                            <p class="section4ActualiteCategorie">{{ actualite.categorie.nom }}</p>
+
+                            <p class="section4ActualiteDate"><i class="fa fa-clock-o"></i> {# { actualite.created|localizeddate('none', 'none', null, null, 'd MMMM Y') }} #} 21 mars 2015 </p>
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="section4ActualiteVoir">
+                <a href="{{ path('client_actualite_manager') }}" class="btn rouge navAnimate" data-url="{{ path('client_actualite_manager') }}">Voir la liste</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section section5" id="contact">
+        <div class="inner">
+
+            <div class="section5Left">
+                <h2 class="section5TitreBureau">Vous voulez<br>travailler<br>avec moi ?</h2>
+                <h2 class="section5TitreMobile">Vous voulez travailler avec moi ?</h2>
+
+                <div class="section5Infos">
+                    <p><i class="fa fa-phone"></i> +336 12 54 59 30</p>
+                    <p><i class="fa fa-envelope"></i> pinelli.luc@hotmail.fr</p>
+                </div>
+            </div>
+
+            <div class="section5Right">
+                {{ form_start(form, {'action': path('client_contact_post'), 'attr': {novalidate: 'novalidate', 'id':'contactFormJs'}}) }}
+
+                    <div class="form-group">
+                        {{ form_label(form.nom, "Nom *") }}
+                        {{ form_widget(form.nom, {'attr': {'class': 'form-elem'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.email, "Email *") }}
+                        {{ form_widget(form.email, {'attr': {'class': 'form-elem'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.contenu, "Message *") }}
+                        {{ form_widget(form.contenu, {'attr': {'class': 'form-elem'}}) }}
+                    </div>
+
+                    {{ form_rest(form) }}
+
+                {{ form_end(form) }}
+            </div>
+
+            <div class="clear"></div>
+
+        </div>
+    </section>
+
+{% endblock %}

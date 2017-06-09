@@ -1,0 +1,7 @@
+admin_contact_manager:
+    path:     /admin/contact/manager
+    defaults: { _controller: ContactBundle:Contact:managerAdmin }
+
+client_contact_post:
+    path:     /contact-post
+    defaults: { _controller: ContactBundle:Contact:PostContact }

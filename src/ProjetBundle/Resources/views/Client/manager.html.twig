@@ -1,0 +1,57 @@
+{% extends "GlobalBundle:Client/Layout:layout.html.twig" %}
+
+{% block metaTitle %}Pinelli Luc - Projets{% endblock %}
+{% block metaDescription %}{% endblock %}
+
+{% block bodyClass %}noHome{% endblock %}
+
+{% block content %}
+
+    <section class="section contenu">
+
+        <div id="particles-light-js" class="contenuParticle"></div>
+
+        <div class="inner">
+
+            <div class="contenuHeader">
+                <h1>Projets<br>& études de cas</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aut commodi consequuntur facilis harum ratione, reprehenderit vitae. Incidunt inventore nisi nobis recusandae! A cumque dignissimos magni maxime nisi? Ab, quam!</p>
+            </div>
+
+            <div class="projetsListeCategorie">
+                <p data-filter="*" class="current">Tout</p>
+                {% for categorie in categories %}
+                    <p data-filter=".categorie{{ categorie.id }}">{{ categorie.nom }}</p>
+                {% endfor %}
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="projetsListe">
+
+                {% for projet in projets %}
+                    <div class="projetListe categorie{{projet.categorie.id}} navExt" data-url="{{ projet.lien }}">
+                        <div class="projetListeImage">
+                            <img src="{{ asset('img/projet/liste/' ~ projet.image) }}">
+
+                            <i class="projetListeLink fa fa-link"></i>
+                        </div>
+
+                        <div class="projetListeContenu">
+                            <p class="projetListeCategorie">{{ projet.categorie.nom }} - {# {{ projet.created|localizeddate('none', 'none', null, null, 'd MMMM Y') }} #} 18 janvier 2018</p>
+                            <h3>{{ projet.titre }}</h3>
+                            {{ projet.contenu|raw }}
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <img src="{{ asset('img/layout/triangleRouge.svg') }}" class="contenuTriangleRouge">
+
+        <img src="{{ asset('img/layout/triangleBleu.svg') }}" class="contenuTriangleBleu">
+    </section>
+
+{% endblock %}

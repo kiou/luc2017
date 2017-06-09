@@ -1,0 +1,51 @@
+{% extends "GlobalBundle:Client/Layout:layout.html.twig" %}
+
+{% block metaTitle %}Connexion{% endblock %}
+
+{% block bodyClass %}noHome noLoader{% endblock %}
+
+{% block content %}
+
+    <section class="section contenu">
+
+        <div class="inner">
+
+            <div class="contenuHeader">
+                <h1>Connexion</h1>
+            </div>
+
+            {% if error %}
+                <div class="message" id="erreur">
+                    <span class="messageCouleur"></span>
+                    <p>{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                </div>
+            {% endif %}
+
+            <form action="{{ path('login') }}" method="post" class="formConnexion">
+
+                <div class="form-group">
+                    <label for="username">Email</label>
+                    <input type="text" id="username" name="_username" class="form-elem" value="{{ last_username }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="_password" class="form-elem">
+                </div>
+
+                <div class="form-group">
+                    <input type="hidden" name="_target_path" value="admin_page_index">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <button type="submit" class="form-submit rouge">Se connecter</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <img src="{{ asset('img/layout/triangleRouge.svg') }}" class="contenuTriangleRouge">
+
+        <img src="{{ asset('img/layout/triangleBleu.svg') }}" class="contenuTriangleBleu">
+    </section>
+
+{% endblock %}

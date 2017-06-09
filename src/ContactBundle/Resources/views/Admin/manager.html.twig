@@ -1,0 +1,32 @@
+{% extends "GlobalBundle:Admin/Layout:layout.html.twig" %}
+
+{% block contentTitre %}Gestion des contacts{% endblock %}
+
+{% block content %}
+
+	<table class="table">
+		
+		<tr>
+			<th class="left" width="100%">Contact</th>
+		</tr>
+
+		{% for contact in contacts %}
+			
+			<tr>
+
+				<td class="left">
+					<p class="tableDate">Ajouté le {{ contact.created|date("d/m/Y à H:i") }}</p>
+					<p><strong>le contenu</strong></p>
+				</td>
+
+			</tr>
+
+		{% else %}
+			<tr>
+				<td>Aucun contact</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+
+{% endblock %}

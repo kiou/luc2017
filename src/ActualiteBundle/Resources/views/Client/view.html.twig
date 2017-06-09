@@ -1,0 +1,29 @@
+{% extends "GlobalBundle:Client/Layout:layout.html.twig" %}
+
+{% block metaTitle %}Pinelli Luc - {{ actualite.metaTitle }}{% endblock %}
+{% block metaDescription %}{{ actualite.metaDescription }}{% endblock %}
+
+{% block bodyClass %}noHome{% endblock %}
+
+{% block content %}
+
+    <section class="section contenu">
+
+        <div class="inner">
+
+            <div class="contenuHeader">
+                <h1>{{ actualite.titre }}</h1>
+            </div>
+
+            <div class="actualiteContenu wysiwyg">
+                {{ actualite.contenu|raw }}
+            </div>
+
+        </div>
+
+        <img src="{{ asset('img/layout/triangleRouge.svg') }}" class="contenuTriangleRouge">
+
+        <img src="{{ asset('img/layout/triangleBleu.svg') }}" class="contenuTriangleBleu">
+    </section>
+
+{% endblock %}

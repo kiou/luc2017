@@ -1,0 +1,61 @@
+admin_projet_manager:
+    path:     /admin/projet/manager
+    defaults: { _controller: ProjetBundle:Projet:managerAdmin }
+
+admin_projet_ajouter:
+    path:     /admin/projet/ajouter
+    defaults: { _controller: ProjetBundle:Projet:ajouterAdmin }
+
+admin_projet_publier:
+    path:     /admin/projet/publier/{id}
+    defaults: { _controller: ProjetBundle:Projet:publierAdmin }
+    requirements:
+        id: \d+
+
+admin_projet_poid:
+    path:     /admin/projet/poid/{id}/{poid}
+    defaults:
+        _controller: ProjetBundle:Projet:poidAdmin
+        poid : 1
+    requirements:
+        id: \d+
+        poid: \d+
+
+admin_projet_modifier:
+    path:     /admin/projet/modifier/{id}
+    defaults: { _controller: ProjetBundle:Projet:modifierAdmin }
+    requirements:
+        id: \d+
+
+admin_projet_supprimer:
+    path:     /admin/projet/supprimer/{id}
+    defaults: { _controller: ProjetBundle:Projet:supprimerAdmin }
+    requirements:
+        id: \d+
+
+#Catégorie
+admin_projetcategorie_manager:
+    path:     /admin/projet-categorie/manager
+    defaults: { _controller: ProjetBundle:Categorie:managerAdmin }
+
+admin_projetcategorie_ajouter:
+    path:     /admin/projet-categorie/ajouter
+    defaults: { _controller: ProjetBundle:Categorie:ajouterAdmin }
+
+admin_projetcategorie_modifier:
+    path:     /admin/projet-categorie/modifier/{id}
+    defaults: { _controller: ProjetBundle:Categorie:modifierAdmin }
+    requirements:
+        id: \d+
+
+admin_projetcategorie_supprimer:
+    path:     /admin/projet-categorie/supprimer/{id}
+    defaults: { _controller: ProjetBundle:Categorie:supprimerAdmin }
+    requirements:
+        id: \d+
+
+#Client
+client_projet_manager:
+    path:     /projets
+    defaults: { _controller: ProjetBundle:Projet:managerClient }
+

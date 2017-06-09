@@ -1,0 +1,78 @@
+{% extends "GlobalBundle:Admin/Layout:layout.html.twig" %}
+
+{% block cssBefore %}
+	<link href="{{ asset('js/sweet/sweet.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block contentTitre %}Gestion des compétences{% endblock %}
+
+{% block content %}
+	<div id="recherche">
+		<form action="{{ path('admin_competence_manager') }}" method="post">
+			<input type="text" name="recherche" class="form-elem medium" value="{{ recherches.recherche | default('') }}">
+
+			<button type="submit" name="addRecherche"><i class="fa fa-search"></i></button>
+		</form>
+	</div>
+
+	<table class="table">
+		
+		<tr>
+			<th width="5%"></th>
+			<th class="left" width="80%">Compétence</th>
+			<th colspan="3" width="15%">Actions</th>
+		</tr>
+
+		{% for competence in pagination %}
+			
+			<tr>
+
+				<td>
+					<img class="tableImage" src="{{ asset('img/competence/tmp/' ~ competence.image) }}">
+				</td>
+
+				<td class="left">
+					<p class="tableDate">Ajouté le {{ competence.created|date("d/m/Y à H:i") }}</p>
+					{% if competence.changed is not null %}
+						<p class="tableDate">Modifié le {{ competence.changed|date("d/m/Y à H:i") }}</p>
+					{% endif %}
+					<p><strong>{{ competence.titre }}</strong></p>
+				</td>
+
+				{% if competence.isActive == false %}
+					<td data-url="{{ path('admin_competence_publier',{'id': competence.id})}}" class="tablePublucation">
+                    	<a href="{{ path('admin_competence_publier',{'id': competence.id})}}" title="Publication"><i class="tableAction rouge fa fa-check"></i></a>
+                    </td>
+				{% else %}
+					<td data-url="{{ path('admin_competence_publier',{'id': competence.id})}}" class="tablePublucation">
+                    	<a href="{{ path('admin_competence_publier',{'id': competence.id})}}" title="Publication"><i class="tableAction turquoise fa fa-check"></i></a>
+                    </td>
+				{% endif %}
+
+				<td>
+                    <a href="{{ path('admin_competence_modifier',{'id': competence.id})}}" title="Modifier la compétence"><i class=" tableAction fa fa-pencil"></i></a>
+                </td>
+
+				<td>
+                    <a href="{{ path('admin_competence_supprimer',{'id': competence.id})}}" class="sweetDelete" title="Supprimer la compétence" data-title="Supprimer la compétence" data-text="êtes vous sur ?"><i class=" tableAction fa fa-trash"></i></a>
+                </td>
+			</tr>
+
+		{% else %}
+			<tr>
+				<td colspan="5">Aucune actualité</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+
+	{# display navigation #}
+	<div class="navigation">
+	    {{ knp_pagination_render(pagination) }}
+	</div>
+	
+{% endblock %}
+
+{% block scriptBefore %}
+	<script type="text/javascript" src="{{ asset('js/sweet/sweet.js')}}"></script>
+{% endblock %}
