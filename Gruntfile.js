@@ -9,6 +9,14 @@ module.exports = function(grunt){
 				src: [
 					'web/js/jquery/jquery.js',
 					'web/js/client/app.js',
+                    'web/js/particle/particles.min.js',
+                    'web/js/pathformer.js',
+                    'web/js/vivus.js',
+                    'web/js/scrollmagic/ScrollMagic.min.js',
+                    'web/scrollmagic/animation.gsap.min.js',
+                    'web/js/scrollmagic/TweenMax.min.js',
+                    'web/js/isotope.js',
+                    'web/js/height.js'
 				],
 				dest: 'web/js/client/app_min.js',
 			},

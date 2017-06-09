@@ -205,7 +205,7 @@ $(function(){
             navAnimate(elem);
         }
 
-    })
+    });
 
     if($('.projetsListe').length != 0){
         $('.projetsListe').isotope({
@@ -240,8 +240,6 @@ $(function(){
 
         window.open(url);
     });
-
-    if($('.section3Competence').length){ $('.section3Competence').matchHeight(); }
 
 });
 

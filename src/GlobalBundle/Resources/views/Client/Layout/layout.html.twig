@@ -35,20 +35,16 @@
 	</main>
 	
 	<!-- Librairies javascript -->
-	{% if app.environment == 'prod' %}
-		<script type="text/javascript" src="{{ asset('js/client/app_min.js')}}"></script>
-	{% else %}
-		<script type="text/javascript" src="{{ asset('js/jquery/jquery.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/particle/particles.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/pathformer.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/vivus.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/scrollmagic/ScrollMagic.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/scrollmagic/animation.gsap.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/scrollmagic/TweenMax.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/isotope.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/height.js')}}"></script>
-		<script type="text/javascript" src="{{ asset('js/client/app.js')}}"></script>
-	{% endif %}
+    <script type="text/javascript" src="{{ asset('js/jquery/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/particle/particles.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/pathformer.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/vivus.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/scrollmagic/ScrollMagic.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/scrollmagic/animation.gsap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/scrollmagic/TweenMax.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/isotope.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/client/app.js')}}"></script>
+
     {% block script %}{% endblock %}
 
 </body>
