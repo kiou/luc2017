@@ -3,6 +3,12 @@
 {% block metaTitle %}Pinelli Luc{% endblock %}
 {% block metaDescription %}{% endblock %}
 
+{% block opengraph %}
+    <meta property="og:title" content="Pinelli Luc - Webmaster">
+    <meta property="og:description" content="Développement de site internet sur Grenoble">
+    <meta property="og:image" content="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('img/layout/logoOg.jpg') }}">
+{% endblock %}
+
 {% block bodyClass %}accueil{% endblock %}
 
 {% block content %}
@@ -20,7 +26,7 @@
 
                 <div class="section1Left">
                     <h1>Développement.<br>Site internet.</h1>
-                    <p>hey, tu cherche un webmaster ?<br>Du coup bienvenue ! Hésite pas à faire le tour de mes références, y'a des actus aussi si tu veu, amuse toi bien ! (et j'adore le web, en parler, le partager également alors contacte moi)</p>
+                    <p>Hey, tu cherches un webmaster ?<br>Du coup bienvenue ! N'hésite pas à faire le tour de mes références, il y a des actus aussi si tu veux, amuse-toi bien ! (Et j'adore le web, en parler, et le partager également alors contacte-moi)</p>
                 </div>
 
                 <div class="section1Right">

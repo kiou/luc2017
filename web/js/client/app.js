@@ -1,9 +1,9 @@
 /* Particle */
 function setParticle() {
     if($('#particles-js').length != 0){
-        particlesJS.load('particles-js', 'http://127.0.0.1/luc2017/web/js/particle/particlesjs-config.json');
+        particlesJS.load('particles-js', 'http://pinelli-luc.fr/web/js/particle/particlesjs-config.json');
     }else if($('#particles-light-js').length != 0){
-        particlesJS.load('particles-light-js', 'http://127.0.0.1/luc2017/web/js/particle/particlesjs-config-light.json');
+        particlesJS.load('particles-light-js', 'http://pinelli-luc.fr/web/js/particle/particlesjs-config-light.json');
     }
 }
 
@@ -253,6 +253,17 @@ $(window).scroll(function(){
 })
 
 $(window).on('load', function() {
+
+    if($('.projetsListe').length != 0){
+        $('.projetsListe').isotope({
+            itemSelector: '.projetListe',
+            percentPosition: true,
+            filter: '*',
+            masonery: {
+                columnWidth: '.projetListe'
+            }
+        });
+    }
 
     /* Chargement */
     if($('.noLoader').length == 0) {

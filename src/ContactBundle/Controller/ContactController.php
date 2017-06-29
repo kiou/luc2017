@@ -42,6 +42,17 @@ class ContactController extends Controller
                 $em->flush();
 
                 /* Notification */
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Contact')
+                    ->setFrom('noreply@pinelli-luc.fr')
+                    ->setTo('pinelli.luc@hotmail.fr')
+                    ->setBody(
+                        $this->renderView('ContactBundle:Client:notification.html.twig'),
+                        'text/html'
+                    );
+
+                /* Envoyer le message */
+                $this->get('mailer')->send($message);
 
                 return new JsonResponse(array(
                         'succes' => 'Votre message à été envoyé avec succès'
