@@ -1,9 +1,15 @@
 /* Particle */
 function setParticle() {
     if($('#particles-js').length != 0){
-        particlesJS.load('particles-js', 'http://pinelli-luc.fr/web/js/particle/particlesjs-config.json');
-    }else if($('#particles-light-js').length != 0){
-        particlesJS.load('particles-light-js', 'http://pinelli-luc.fr/web/js/particle/particlesjs-config-light.json');
+        particlesJS.load('particles-js', 'http://127.0.0.1/luc2017/web/js/particle/particlesjs-config.json');
+    }
+
+    if($('#particles-light-js').length != 0){
+        particlesJS.load('particles-light-js', 'http://127.0.0.1/luc2017/web/js/particle/particlesjs-config-light.json');
+    }
+
+    if($('#particles-forme-js').length != 0){
+        particlesJS.load('particles-forme-js', 'http://127.0.0.1/luc2017/web/js/particle/particlesjs-config-contact.json');
     }
 }
 
