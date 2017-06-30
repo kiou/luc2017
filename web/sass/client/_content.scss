@@ -277,6 +277,15 @@
 .section4{
     background-color: $bleu;
     padding: 110px 0px 0px 0px;
+    overflow: hidden;
+}
+
+.section4Background{
+    position: absolute;
+    left: 50%;
+    bottom: -170px;
+    margin-left: -407px;
+    z-index:2;
 }
 
 .section4Actualite{

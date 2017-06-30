@@ -35,6 +35,8 @@
         @include transition-property(opacity);
         @include transition-duration(0.4s);
         @include transition-timing-function(ease);
+        width: 176px;
+        height: 75px;
     }
     &:hover{
         img{

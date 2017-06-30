@@ -63,6 +63,12 @@ $(function(){
             .addTo(controller);
     }
 
+    if($('.section4').length != 0) {
+        new ScrollMagic.Scene({triggerElement: ".section4", duration: $('.section4').height()})
+            .setTween(TweenMax.fromTo(".section4Background", 1, {scale:0}, {scale:1}))
+            .addTo(controller);
+    }
+
     /* Ouverture menu */
     $(document).on('click','.menuBtn',function(){
         var btn = $(this);
