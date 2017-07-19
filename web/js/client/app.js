@@ -23,7 +23,23 @@ function navAnimate(elem){
     }, 450);
 }
 
+/* Ouverture menu */
+function reveal_board() {
+    $('.menuContenu ul li a').each(function(index) {
+        var that = this;
+        var t = setTimeout(function() {
+            $(that).addClass('current');
+        }, 100 * index);
+    });
+}
+
 $(function(){
+
+    BrowserDetect.init();
+    var bv= BrowserDetect.browser;
+    if(bv == "Explorer"){
+        $("body").addClass("ie");
+    }
 
     /* Animation */
     var controller = new ScrollMagic.Controller();
@@ -69,17 +85,25 @@ $(function(){
             .addTo(controller);
     }
 
-    /* Ouverture menu */
     $(document).on('click','.menuBtn',function(){
         var btn = $(this);
         var menu = $('.menuContenu');
 
         if(btn.hasClass('current')){
             btn.removeClass('current');
-            menu.removeClass('current');
+            menu.addClass('out');
+            setTimeout(function() {
+                menu.removeClass('current out');
+                menu.find('ul li a').removeClass('current');
+            },200);
         }else{
+            menu.removeClass('current out');
+            menu.find('ul li a').removeClass('current');
+
             btn.addClass('current');
             menu.addClass('current');
+
+            reveal_board();
         }
     });
 
@@ -200,8 +224,6 @@ $(function(){
         }else{
             navAnimate(elem);
         }
-
-        $('.menuBtn, .menuContenu').removeClass('current');
     });
 
     /* navigation en cliquant sur le logo */
@@ -259,10 +281,17 @@ $(window).scroll(function(){
 
     var scroll = $(document).scrollTop();
     if(scroll > 10){
-        $('.menuBtn, .menuContenu').removeClass('current');
+        if($('.menuContenu.current').length != 0) {
+            $('.menuBtn').removeClass('current');
+            $('.menuContenu').addClass('out');
+            setTimeout(function () {
+                $('.menuContenu').removeClass('current out');
+                $('.menuContenu').find('ul li a').removeClass('current');
+            }, 200);
+        }
     }
 
-})
+});
 
 $(window).on('load', function() {
 

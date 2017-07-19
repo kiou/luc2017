@@ -16,7 +16,8 @@
 
 				<td class="left">
 					<p class="tableDate">Ajouté le {{ contact.created|date("d/m/Y à H:i") }}</p>
-					<p><strong>le contenu</strong></p>
+					<p>{{ contact.email }} / {{ contact.nom }}</p>
+                    <p>{{ contact.contenu }}</p>
 				</td>
 
 			</tr>

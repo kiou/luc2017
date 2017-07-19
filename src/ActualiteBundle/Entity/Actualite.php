@@ -122,7 +122,6 @@ class Actualite
 
     /**
      * @ORM\ManyToOne(targetEntity="ActualiteBundle\Entity\Categorie")
-     * @Assert\NotBlank(message="Compléter le champ catégorie")
      */
     private $categorie;
 

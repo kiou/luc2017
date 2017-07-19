@@ -97,12 +97,12 @@
     }
     &.current span::before{
         @include transform(translateY(0px) rotate(45deg));
-        background-color: $bleu;
+        background-color: $blanc;
     }
     &.current span::after{
         @include transform(translateY(0px) rotate(-45deg));
         width: 24px;
-        background-color: $bleu;
+        background-color: $blanc;
     }
     &:not(.current){
         &:hover{
@@ -119,36 +119,58 @@
 }
 
 .menuContenu{
-    background-color: $blanc;
-    position: absolute;
+    background-color: rgba($bleuFonce,0.95);
+    position: fixed;
     left: 0px;
     right: 0px;
     top: 0px;
-    @include transition-property(transform);
+    height: 100vh;
+    max-width: 1820px;
+    margin: 0px auto;
+    @include transition-property(opacity);
     @include transition-duration(0.4s);
     @include transition-timing-function(ease);
-    @include transform(translateY(-100%));
-    text-align: center;
+    opacity:0;
+    top:-100%;
     z-index:2;
-    padding:50px 0px;
-    a{
-        font-family: 'Playfair Display', serif;
-        color: $rouge;
-        font-weight: bold;
-        display: block;
-        font-size: 45px;
-        padding:7px;
-        text-transform: uppercase;
-        opacity:0.2;
-        @include transition-property(opacity);
-        @include transition-duration(0.4s);
-        @include transition-timing-function(ease);
-        &:hover{
-            opacity:1;
+    ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        li{
+            list-style: none;
+            a{
+                @include transition-property(color, opacity, transform);
+                @include transition-duration(0.3s);
+                @include transition-timing-function(ease);
+                font-family: 'Playfair Display', serif;
+                @include transform(translateY(15px) scale(0.8));
+                color: $blanc;
+                font-weight: blod;
+                display: block;
+                font-size: 45px;
+                text-transform: uppercase;
+                padding:20px 0px;
+                opacity:0;
+                &:hover{
+                    @include transition-delay(0s);
+                    color: $rouge;
+                }
+                &.current{
+                    opacity:1;
+                    @include transform(translateY(0px) scale(1));
+                }
+            }
         }
     }
     &.current{
-        @include transform(translateY(0px));
+        top: 0px;
+        opacity: 1;
+    }
+    &.out{
+        opacity:0;
     }
 }
 
@@ -254,6 +276,14 @@
         background-color: $blanc;
         p{
             color: $gris;
+        }
+    }
+}
+
+body{
+    &.ie {
+        .menuContenu, .main, .menu {
+            max-width: none !important;
         }
     }
 }

@@ -245,6 +245,15 @@
 
 @media screen and (max-width: 680px) {
 
+    .menuContenu{
+        ul li {
+            a {
+                font-size: 30px;
+                padding: 10px 0px;
+            }
+        }
+    }
+
     .section3Competence{
         width:100%;
         padding:0px;
@@ -359,14 +368,6 @@
             font-size: 16px;
             line-height:30px;
         }
-    }
-
-    .menuContenu{
-        a{
-            font-size: 35px;
-            opacity:0.5;
-        }
-
     }
 
     .loaderInnerPage{
