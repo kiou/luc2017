@@ -369,9 +369,14 @@ class Actualite
         /* Miniature */
         $size = new Box(630,390);
         $imagine->open($this->fileimage)
-            ->thumbnail($size, 'outbound')
-            ->save($this->getUploadRootDir().'miniature/'.$this->image);
+                ->thumbnail($size, 'outbound')
+                ->save($this->getUploadRootDir().'miniature/'.$this->image);
 
+        /* Miniature */
+        $size = new Box(300,190);
+        $imagine->open($this->fileimage)
+                ->thumbnail($size, 'outbound')
+                ->save($this->getUploadRootDir().'avant/'.$this->image);
 
     }
 
