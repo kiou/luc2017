@@ -66,3 +66,8 @@ DirectoryIndex app.php
         # RedirectTemp cannot be used instead
     </IfModule>
 </IfModule>
+
+<FilesMatch "\.(ico|gif|jpg|jpeg|png|flv|pdf|swf|mov|mp3|wmv|ppt|svg|css|json|js)$">
+    ExpiresDefault A2419200
+    Header append Cache-Control "public"
+</FilesMatch>
