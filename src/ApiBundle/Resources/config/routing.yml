@@ -1,0 +1,3 @@
+api_actualite_manager:
+    path:     /api/actualite/manager
+    defaults: { _controller: ApiBundle:Api:getAllActualites }

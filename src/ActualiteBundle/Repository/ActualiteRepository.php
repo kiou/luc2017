@@ -28,4 +28,16 @@ class ActualiteRepository extends \Doctrine\ORM\EntityRepository
         return $query = $qb->getQuery()->getResult();
     }
 
+    public function getAllActualitesApi(){
+        $qb = $this->createQueryBuilder('a');
+
+        $qb->andWhere('a.isActive = :active')
+           ->setParameter('active', true);
+
+        $qb->orderBy('a.id', 'DESC');
+
+        return $query = $qb->getQuery()->getArrayResult();
+    }
+
+
 }

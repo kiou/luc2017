@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new CompetenceBundle\CompetenceBundle(),
             new ProjetBundle\ProjetBundle(),
             new ContactBundle\ContactBundle(),
+            new ApiBundle\ApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
