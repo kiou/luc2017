@@ -14,18 +14,18 @@
 
 <body>
 	
-	<main id="main">
+	<main class="main">
 			
 		<!-- Le menu -->
 		{{ include("GlobalBundle:Admin/Include:menu.html.twig") }}
 
-		<div id="container">
+		<div class="container">
 			
 			<!-- Le header -->
 			{{ include("GlobalBundle:Admin/Include:header.html.twig") }}
 			
 			<!-- Titre principal de la page -->
-			<div id="contentTitre">
+			<div class="contentTitre">
 				<h1>{% block contentTitre %}Bienvenue sur l'administration{% endblock %}</h1>
 			</div>
 
@@ -33,7 +33,7 @@
 			{% block breadcrumb %}
             {% endblock %}      
 
-			<div id="content">
+			<div class="content">
 
 				<!-- Affichage des messages en session -->
 				{{ include("GlobalBundle:Admin/Include:flashbag.html.twig") }}

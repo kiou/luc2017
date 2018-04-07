@@ -1,38 +1,39 @@
 form{
-	ul{
-		width: 500px;
-		padding: 8px 5px 8px 20px;
-		background-color: #fff;
-		position: relative;
-		li{ 
-			list-style: none; 
-			color: $grisClair;
-			font-size: 15px;
-		}
-		&:before{
-			content:'';
-			position: absolute;
-			left: 0px;
-			top: 0px;
-			bottom: 0px;
-			width: 6px;
-			background-color: $rouge;
-		}
-	}
+	ul:not(.tabsMenu):not(.select2-selection__rendered){
+        width: 500px;
+        padding: 8px 5px 8px 20px;
+        background-color: $blanc;
+        position: relative;
+        li{
+            list-style: none;
+            color: $grisClair;
+            font-size: 15px;
+        }
+        &:before{
+            content:'';
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            width: 6px;
+            background-color: $rouge;
+        }
+    }
 }
 
 .form-poid{
-	padding:6px;
-	border: 1px solid #ccc;
-	cursor: pointer;
-	margin-right: 11px;
+    padding:6px;
+    border: 1px solid $grisTresClair;
+    cursor: pointer;
+    margin-right: 11px;
 }
 
 /* Class de base pour la mise en forme des champs */
 .form-elem{
 	width: 100%;
-	background-color: #fff;
-	border: 1px solid #ccc;
+	background-color: $blanc;
+    border:none;
+	border-bottom: 1px solid $grisTresClair;
 	font-size: 14px;
 	margin-bottom: 20px;
 	padding: 12px;
@@ -44,6 +45,7 @@ form{
 	padding: 20px;
 	background-color: $grisBlanc;
 	@include border-radius(4px);
+    margin-bottom: 20px;
 	h3{
 		padding-bottom: 15px;
 	}
@@ -81,13 +83,29 @@ select{
 		max-width: 500px;
 	}
     &.disabled{
-        background-color: #ccc;
+        background-color: $grisTresClair;
         cursor:Not-Allowed;
     }
 }
 
 textarea{
 	height: 150px;
+}
+
+.form-fichier{
+    border-bottom: 1px solid $grisTresClair;
+    font-size: 14px;
+    margin-bottom: 20px;
+    &.big{
+        max-width: 500px;
+    }
+
+    a{
+        padding: 12px;
+        color: $grisClair;
+        display: block;
+        background-color: $blanc;
+    }
 }
 
 /* Radio + Checkbox */
@@ -109,8 +127,8 @@ textarea{
 	width: 100%;
 	height: 190px;
 	overflow: auto;
-	background-color: #fff;
-	border: 1px solid #ccc;
+	background-color: $blanc;
+	border-bottom: 1px solid $grisTresClair;
 	margin-bottom: 20px;
 	padding: 12px;
 	input{
@@ -142,7 +160,7 @@ label{
 	margin: -15px 0px 15px 0px;
 	font-style: italic;
 	font-size: 13px;
-	color: $grisTresClair;
+	color: lighten($grisClair,20%);
 }
 
 /* Retour d'image dans le formulaire */
@@ -185,7 +203,7 @@ label{
 	width: 100%;
 	padding: 10px 0px;
 	border: 1px solid transparent;
-	color: #fff;
+	color: $blanc;
 	cursor: pointer;
 	background-color: $grisClair;
 	border-color: darken($grisClair, 5%);

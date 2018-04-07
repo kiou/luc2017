@@ -1,5 +1,5 @@
 /* Template */
-#main{
+.main{
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -9,7 +9,7 @@
 	-webkit-overflow-scrolling: touch;
 }
 
-#container{
+.container{
 	overflow: hidden;
 	z-index: 2;
 	position: relative;
@@ -17,20 +17,17 @@
 	width: calc(100% - 280px);
 	min-height: 100%;
 	background-color: $grisBleu;
-	@include transition-property(width, transform);
-	@include transition-duration(0.4s);
-	@include transition-timing-function(ease);
 	&.active{
 		@include transform(translateX(280px));
 	}
 }
 
-#content{
+.content{
 	padding: 30px;
 	position: relative;
 }
 
-#contentTitre{
+.contentTitre{
 	width: 100%;
 	background-color: $grisBlanc;
 	padding: 20px 30px 30px 30px;
@@ -49,7 +46,7 @@
 	font-size: 14px;
 	@include border-radius(3px);
 	div{
-		color: #fff;
+		color: $blanc;
 	}
 }
 
@@ -59,17 +56,16 @@
 /* Template */
 
 /* Header */
-#header{
-	background-color: #fff;
+.header{
+    @include background-image(linear-gradient(to right, $bleu, $turquoise));
 	width: 100%;
-	border-bottom: 1px solid $grisBordure;
 }
 
-#headerAcces{
-	height: 50px;
-	line-height: 50px;
+.headerAcces{
+	height: 80px;
+	line-height: 80px;
 	padding-left: 30px;
-	color: $grisTresClair;
+	color: $blanc;
 	font-weight: 300;
 	float: left;
 	@include transition-property(opacity,color);
@@ -83,17 +79,17 @@
 	}
 }
 
-#headerCompte{
-	height: 50px;
+.headerCompte{
+	height: 80px;
 	padding: 0px 20px;
 	float: right;
-	border-left: 1px solid $grisBordure;
 	p{
 		@include transition-property(opacity);
 		@include transition-duration(0.3s);
 		@include transition-timing-function(ease);
-		line-height: 50px;
+		line-height: 80px;
 		cursor: pointer;
+        color: $blanc;
 		&:hover{
 			opacity: 0.6;
 		}
@@ -112,18 +108,20 @@
 	}
 }
 
-#headerCompteMenu{
-	text-align: right;
+.headerCompteMenu{
 	width: 200px;
+    .fa{
+        padding-right: 5px;
+    }
 }
 
-#headerDeco{
-	height: 50px;
-	line-height: 50px;
+.headerDeco{
+	height: 80px;
+	line-height: 80px;
 	float: right;
 	margin-right:30px;
 	font-size: 17px;
-	color: $grisTresClair;
+	color: $blanc;
 	@include transition-property(opacity,color);
 	@include transition-duration(0.3s);
 	@include transition-timing-function(ease);
@@ -132,13 +130,12 @@
 	}
 }
 
-#headerMobile{
+.headerMobile{
 	position: relative;
 	float: left;
-	height: 50px;
+	height: 80px;
 	width: 50px;
 	cursor: pointer;
-	border-right: 1px solid $grisBordure;
 	display: none;
 	span{
 		position: absolute;
@@ -147,7 +144,7 @@
 		width: 22px;
 		height: 2px;
 		display: block;
-		background-color: $rouge;
+		background-color: $blanc;
 		@include transition-property(background);
 		@include transition-duration(0.4s);
 		@include transform(translateX(-50%) translateY(-50%));
@@ -159,7 +156,7 @@
 			width: 22px;
 			height: 2px;
 			display: block;
-			background-color: $rouge;
+			background-color: $blanc;
 			@include transform-origin(50%, 50%);
 			@include transition-property(transform);
 			@include transition-duration(0.4s);
@@ -183,39 +180,36 @@
 /* Header */
 
 /* Menu */
-#menu {
+.menu {
 	width: 280px;
 	position: fixed;
 	z-index: 1;
 	height: 100%;
-	background-color: $grisClair;
+	background-color: $grisFonce;
 	overflow-y: hidden;
-	@include transition-property(transform);
-	@include transition-duration(0.4s);
-	@include transition-timing-function(ease);
 	&.active{
 		@include transform(translateX(0px));
 	}
 }
 
-#menuEntreprise{
+.menuEntreprise{
 	width: 100%;
-	background-color: $rouge;
+    @include background-image(linear-gradient(to right, $bleu,$bleurClair));
 	text-align: center;
-	height: 50px;
+	height: 80px;
 	p{
 		text-transform: uppercase;
 		font-weight: bold;
 		font-size: 15px;
-		line-height: 50px;
-		color: #fff;
+		line-height: 80px;
+		color: $blanc;
 	}
 }
 
-#menuLogo{
+.menuLogo{
 	width: 116px;
 	height: 116px;
-	background-color: $grisBleu;
+	background-color: darken($grisFonce,5%);
 	margin: 17px auto;
 	@include border-radius(50%);
 	border: 3px solid $turquoise;

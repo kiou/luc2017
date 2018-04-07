@@ -6,13 +6,13 @@ $(function(){
     });
 
     /* Scroll perso sur le menh à gauche */
-    $('#menu').perfectScrollbar();
+    $('.menu').perfectScrollbar();
 
     /* Picto menu mobile */
-    $('#headerMobile').on('click',function(){
+    $('.headerMobile').on('click',function(){
         var bouton = $(this);
-        var menu = $('#menu');
-        var container = $('#container');
+        var menu = $('.menu');
+        var container = $('.container');
 
         if(!menu.hasClass('active')){
             bouton.addClass('active');
@@ -22,6 +22,29 @@ $(function(){
             bouton.removeClass('active');
             menu.removeClass('active');
             container.removeClass('active');
+        }
+    });
+
+    /* Menu principal à gauche */
+    $(".menu .menuNav").on('click',function(){
+
+        var menuNav = $(this);
+        var ul = menuNav.attr('data-nav');
+
+        /* Si le menu n'est pas cliqué */
+        if(menuNav.hasClass('active') == false){
+
+            /* Reset */
+            $('.menu .menuNav').removeClass('active');
+            $('.menu ul:visible').slideUp('fast');
+
+            /* Active */
+            menuNav.addClass('active');
+            $('ul.'+ul).slideDown('fast');
+
+        }else{
+            menuNav.removeClass('active');
+            $('ul.'+ul).slideUp('fast');
         }
     });
 
@@ -42,29 +65,6 @@ $(function(){
         }else{
             dropDown.removeClass('active');
             dropDownMenu.fadeOut('fast');
-        }
-    });
-
-    /* Menu principal à gauche */
-    $("#menu .menuNav").on('click',function(){
-
-        var menuNav = $(this);
-        var ul = menuNav.attr('data-nav');
-
-        /* Si le menu n'est pas cliqué */
-        if(menuNav.hasClass('active') == false){
-
-            /* Reset */
-            $('#menu .menuNav').removeClass('active');
-            $('#menu ul:visible').slideUp('fast');
-
-            /* Active */
-            menuNav.addClass('active');
-            $('ul#'+ul).slideDown('fast');
-
-        }else{
-            menuNav.removeClass('active');
-            $('ul#'+ul).slideUp('fast');
         }
     });
 
@@ -184,9 +184,9 @@ $(function(){
 
         var windowWidth = $(window).width();
 
-        var bouton = $('#headerMobile');
-        var menu = $('#menu');
-        var container = $('#container');
+        var bouton = $('.headerMobile');
+        var menu = $('.menu');
+        var container = $('.container');
 
         if(menu.hasClass('active')){
             bouton.removeClass('active');

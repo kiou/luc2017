@@ -17,13 +17,13 @@
 		&.active{
 			p{
 				background-color: $grisClair;
-				color: #fff;
+				color: $blanc;
 			}
 		}
 		&:hover{
 			a{
 				background-color: $rouge;
-				color: #fff;
+				color: $blanc;
 			}
 		}
 	}
