@@ -1,3 +1,11 @@
 api_actualite_manager:
     path:     /api/actualite/manager
     defaults: { _controller: ApiBundle:Api:getAllActualites }
+
+api_projet_manager:
+    path:     /api/projet/manager
+    defaults: { _controller: ApiBundle:Api:getAllProjets }
+
+api_competence_manager:
+    path:     /api/competence/manager
+    defaults: { _controller: ApiBundle:Api:getAllCompetences }
